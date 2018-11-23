@@ -16,9 +16,7 @@ import it.unive.dais.legodroid.lib.EV3;
 //import it.unive.dais.legodroid.lib.util.ThrowingConsumer;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
