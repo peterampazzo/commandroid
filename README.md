@@ -1,6 +1,6 @@
 # Commandroid
 
-![Travis-ci](https://api.travis-ci.org/peterampazzo/commandroid.svg)
+[![Build Status](https://travis-ci.com/peterampazzo/commandroid.svg?branch=development)](https://travis-ci.com/peterampazzo/commandroid)
 
 Please use ```development``` branch for future commit and follow this [guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) to understand how to manage gitflow!
 
