@@ -12,6 +12,6 @@
         android:layout_height="28dp"
         android:text="Bluetooth"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="198dp" />
 
 </android.support.constraint.ConstraintLayout>
