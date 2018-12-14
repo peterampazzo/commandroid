@@ -3,6 +3,8 @@ package it.unive.dais.commandroid;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import it.unive.dais.legodroid.lib.plugs.TachoMotor;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
