@@ -28,6 +28,10 @@
         <activity
             android:name=".Scan"
             android:label="@string/title_activity_scan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Drawing"
+            android:label="@string/title_activity_drawing"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
