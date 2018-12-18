@@ -7,10 +7,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.content.Intent;
 
+import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.plugs.TachoMotor;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
