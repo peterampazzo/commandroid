@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/MENU_1"
+        android:id="@+id/MAIN_1"
         android:title="Scan"/>
     <item
-        android:id="@+id/MENU_2"
+        android:id="@+id/MAIN_2"
         android:title="Draw"/>
 </menu>
