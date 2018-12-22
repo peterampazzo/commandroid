@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.MAIN_1:
 			/*
-			 	Codice di gestione della voce MENU_1
+			 	Codice di gestione della voce MAIN_1
 			 */
                 Intent intent = new Intent(this, OnBoarding.class);
                 this.startActivity(intent);
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.MAIN_2:
 			/*
-			 	Codice di gestione della voce MENU_2
+			 	Codice di gestione della voce MAIN_2
 			 */
         }
         return false;
