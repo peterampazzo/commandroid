@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         int id=item.getItemId();
         switch(id)
         {
-            case R.id.MENU_1:
+            case R.id.MAIN_1:
 			/*
 			 	Codice di gestione della voce MENU_1
 			 */
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity(intent);
 
                 break;
-            case R.id.MENU_2:
+            case R.id.MAIN_2:
 			/*
 			 	Codice di gestione della voce MENU_2
 			 */

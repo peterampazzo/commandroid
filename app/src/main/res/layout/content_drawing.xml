@@ -8,6 +8,6 @@
     tools:context=".Drawing"
     tools:showIn="@layout/activity_drawing">
 
-    <item android:drawable="@color/red"  />
+    
 
 </android.support.constraint.ConstraintLayout>
