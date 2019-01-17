@@ -8,4 +8,135 @@
     tools:context=".Drawing"
     tools:showIn="@layout/activity_drawing">
 
+    <!--<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:columnCount="4"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toStartOf="parent">-->
+
+        <!--&lt;!&ndash; row 1 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b00"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b01"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b02"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b03"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 2 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b10"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b11"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b12"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b13"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 3 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b20"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b21"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b22"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b23"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 4 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b30"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b31"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b32"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b33"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 5 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b40"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b41"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b42"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b43"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 6 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b50"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b51"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b52"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b53"-->
+            <!--android:text="" />-->
+
+        <!--&lt;!&ndash; row 7 &ndash;&gt;-->
+        <!--<Button-->
+            <!--android:id="@+id/b60"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b61"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b62"-->
+            <!--android:text="" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/b63"-->
+            <!--android:text="" />-->
+
+    <!--</GridLayout>-->
+
 </android.support.constraint.ConstraintLayout>

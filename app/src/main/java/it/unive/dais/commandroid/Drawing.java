@@ -4,22 +4,51 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
 public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
-//    private Button b00, b01, b02, b03, b10, b11, b12, b13;
     private static int RIGHE = 7;
     private static int COLONNE = 4;
     private Button[][] buttons = new Button[RIGHE][COLONNE];
     protected int[][] draw = new int[RIGHE][COLONNE];
 
+    // controlla se matrice e' nulla
+    protected boolean buttonsNull(){
+        for(int i = 0; i < RIGHE; i++){
+            for(int y = 0; y < COLONNE; y++){
+                if (draw[i][y] == 1){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawing);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //FloatingButton
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // non inviare se la matrice è nulla
+                if(!buttonsNull()){
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
+
+        // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
         for(int i = 0; i < RIGHE; i++){
             for(int y = 0; y < COLONNE; y++){
                 String buttonID = "b" + i + y;
@@ -43,7 +72,6 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
-
     public void onClick(View view) {
         switch (view.getId()){
             //riga 0
