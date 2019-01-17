@@ -42,7 +42,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
             public void onClick(View view) {
                 // non inviare se la matrice è nulla
                 if(!buttonsNull()){
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, "Non hai selezionato nessuna casella", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
             }
