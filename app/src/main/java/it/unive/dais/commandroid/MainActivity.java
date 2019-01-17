@@ -16,20 +16,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id=item.getItemId();
+        Intent intent1, intent2;
         switch(id)
         {
             case R.id.MAIN_1:
 			/*
 			 	Codice di gestione della voce MAIN_1
 			 */
-                Intent intent = new Intent(this, OnBoarding.class);
-                this.startActivity(intent);
+                intent1 = new Intent(this, OnBoarding.class);
+                this.startActivity(intent1);
 
                 break;
             case R.id.MAIN_2:
 			/*
 			 	Codice di gestione della voce MAIN_2
 			 */
+                intent2 = new Intent(this, Drawing.class);
+                this.startActivity(intent2);
         }
         return false;
     }
