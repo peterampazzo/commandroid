@@ -12,6 +12,11 @@ import java.io.IOException;
 
 import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
+import it.unive.dais.legodroid.lib.plugs.TachoMotor;
+import it.unive.dais.legodroid.lib.util.Prelude;
+
+import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.LARGE;
+import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.MEDIUM;
 
 public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,6 +24,9 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
     private static int COLONNE = 4;
     private Button[][] buttons = new Button[RIGHE][COLONNE];
     protected int[][] draw = new int[RIGHE][COLONNE];
+    TachoMotor motor;
+    TachoMotor motor1;
+    TachoMotor motor2;
 
     // controlla se matrice e' nulla
     protected boolean buttonsNull(){
@@ -39,41 +47,69 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         try {
             EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(this::draw)));
+
+            // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
+            for(int i = 0; i < RIGHE; i++){
+                    for(int y = 0; y < COLONNE; y++){
+                        String buttonID = "b" + i + y;
+                        int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+                        buttons[i][y] = (Button) findViewById(resID);
+                        buttons[i][y].setOnClickListener(this);
+                        draw[i][y] = 0;
+                    }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //FloatingButton
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // non inviare se la matrice è nulla
-                if(!buttonsNull()){
-                    Snackbar.make(view, "Non hai selezionato nessuna casella", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
-            }
-        });
-
-        // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
-        for(int i = 0; i < RIGHE; i++){
-            for(int y = 0; y < COLONNE; y++){
-                String buttonID = "b" + i + y;
-                int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-                buttons[i][y] = (Button) findViewById(resID);
-                buttons[i][y].setOnClickListener(this);
-                draw[i][y] = 0;
-            }
-        }
     }
 
 
-    private void draw(int[][] matrix){
-        //codice
+    private void draw(EV3.Api api){
+        motor = api.getTachoMotor(EV3.OutputPort.B);
+        motor1 = api.getTachoMotor(EV3.OutputPort.A);
+        motor2 = api.getTachoMotor(EV3.OutputPort.C);
+        try {
+            motor.setType(LARGE);
+            motor1.setType(MEDIUM);
+            motor2.setType(LARGE);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for(int i = 0; i < RIGHE; i++){
+            for(int y = 0; y < COLONNE; y++){
+                if(draw[i][y]==1){
+                    try {
+                        motor.setStepPower(20,0,360,0,true);
+                        motor.waitCompletion();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    motor1.setStepPower(-20,0,45,0,true);
+                    motor1.waitCompletion();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            try {
+                motor1.setStepPower(20,0,180,0,true);
+                motor1.waitCompletion();
+                motor2.setStepPower(20,0,90,0,true);
+                motor2.waitCompletion();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
     public void ButtonsOnClick(Button button, int x, int y){
         if(draw[x][y] == 0){
