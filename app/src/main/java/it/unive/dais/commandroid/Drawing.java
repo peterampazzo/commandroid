@@ -8,6 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
+
+import it.unive.dais.legodroid.lib.EV3;
+import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
+
 public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
     private static int RIGHE = 7;
@@ -35,6 +40,12 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        try {
+            EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //FloatingButton
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +71,10 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
+    private void draw(int[][] matrix){
+        //codice
+    }
     public void ButtonsOnClick(Button button, int x, int y){
         if(draw[x][y] == 0){
             buttons[x][y].setText("X");
