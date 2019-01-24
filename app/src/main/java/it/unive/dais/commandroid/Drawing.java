@@ -20,6 +20,155 @@ import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.LARGE;
 import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.MEDIUM;
 
 public class Drawing extends AppCompatActivity implements View.OnClickListener{
+    protected int[][] A = new int[RIGHE][COLONNE];
+
+    A[2][0]=1;
+    A[3][0]=1;
+    A[4][0]=1;
+    A[5][0]=1;
+    A[6][0]=1;
+    A[7][0]=1;
+    A[1][1]=1;
+    A[4][1]=1;
+    A[0][2]=1;
+    A[4][2]=1;
+    A[1][3]=1;
+    A[4][3]=1;
+    A[2][4]=1;
+    A[3][4]=1;
+    A[4][4]=1;
+    A[5][4]=1;
+    A[6][4]=1;
+    A[7][4]=1;
+
+
+
+
+
+    protected int[][] B = new int[RIGHE][COLONNE];
+
+    B[0][0]=1;
+    B[1][0]=1;
+    B[2][0]=1;
+    B[3][0]=1;
+    B[4][0]=1;
+    B[5][0]=1;
+    B[6][0]=1;
+    B[7][0]=1;
+    B[0][1]=1;
+    B[0][2]=1;
+    B[0][3]=1;
+    B[1][4]=1;
+    B[2][4]=1;
+    B[3][2]=1;
+    B[3][3]=1;
+    B[4][2]=1;
+    B[4][3]=1;
+    B[5][4]=1;
+    B[6][4]=1;
+    B[7][1]=1;
+    B[7][2]=1;
+    B[7][3]=1;
+
+    protected int[][] C = new int[RIGHE][COLONNE];
+
+    C[2][0]=1;
+    C[3][0]=1;
+    C[4][0]=1;
+    C[5][0]=1;
+    C[1][1]=1;
+    C[6][1]=1;
+    C[0][2]=1;
+    C[7][2]=1;
+    C[0][3]=1;
+    C[7][3]=1;
+    C[0][4]=1;
+    C[7][4]=1;
+
+    protected int[][] D = new int[RIGHE][COLONNE];
+
+    D[0][0]=1;
+    D[1][0]=1;
+    D[2][0]=1;
+    D[3][0]=1;
+    D[4][0]=1;
+    D[5][0]=1;
+    D[6][0]=1;
+    D[7][0]=1;
+    D[0][1]=1;
+    D[7][1]=1;
+    D[0][2]=1;
+    D[7][2]=1;
+    D[1][3]=1;
+    D[6][3]=1;
+    D[2][4]=1;
+    D[3][4]=1;
+    D[4][4]=1;
+    D[5][4]=1;
+
+    protected int[][] E = new int[RIGHE][COLONNE];
+
+    E[0][0]=1;
+    E[1][0]=1;
+    E[2][0]=1;
+    E[3][0]=1;
+    E[4][0]=1;
+    E[5][0]=1;
+    E[6][0]=1;
+    E[7][0]=1;
+    E[0][1]=1;
+    E[3][1]=1;
+    E[4][1]=1;
+    E[7][1]=1;
+    E[0][2]=1;
+    E[3][2]=1;
+    E[4][2]=1;
+    E[7][2]=1;
+    E[0][3]=1;
+    E[3][3]=1;
+    E[4][3]=1;
+    E[7][3]=1;
+    E[0][4]=1;
+    E[7][4]=1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private static int RIGHE = 8;
     private static int COLONNE = 8;
