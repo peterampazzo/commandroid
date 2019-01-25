@@ -38,15 +38,18 @@
             android:text="Scegli una modalità:"
             android:layout_marginTop="70dp"/>
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Disegno Libero"/>
+            android:id="@+id/disegnoLibero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Disegno Libero"/>
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Stampa parole"/>
+
+            android:id="@+id/disegnoLettere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Stampa parole"/>
 
     </LinearLayout>
 

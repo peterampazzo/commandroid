@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OnBoarding"
-            android:label="@string/title_activity_on_boarding"
+            android:name=".Drawing"
+            android:label="@string/title_activity_drawing"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -26,12 +26,8 @@
                 android:value="it.unive.dais.commandroid.MainActivity" />
         </activity>
         <activity
-            android:name=".Scan"
-            android:label="@string/title_activity_scan"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Drawing"
-            android:label="@string/title_activity_drawing"
+            android:name=".Letter"
+            android:label="Letter"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

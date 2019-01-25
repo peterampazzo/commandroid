@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.view.View;
 import android.widget.Button;
 
 import it.unive.dais.legodroid.lib.EV3;
@@ -14,7 +15,7 @@ import it.unive.dais.legodroid.lib.plugs.TachoMotor;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id=item.getItemId();
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.MAIN_1:
 			/*
 			 	Codice di gestione della voce MAIN_1
-			 */
+			 *//*
                 intent1 = new Intent(this, OnBoarding.class);
                 this.startActivity(intent1);
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.MAIN_2:
 			/*
 			 	Codice di gestione della voce MAIN_2
-			 */
+			 *//*
                 intent2 = new Intent(this, Drawing.class);
                 this.startActivity(intent2);
         }
@@ -47,11 +48,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button disegno_libero = findViewById(R.id.disegnoLibero);
+        Button disegno_lettere = findViewById(R.id.disegnoLettere);
+        disegno_libero.setOnClickListener(v -> { this.startActivity(new Intent(this, Drawing.class));});
+        disegno_lettere.setOnClickListener(v -> { this.startActivity(new Intent(this, Letter.class));});
+
     }
 }
