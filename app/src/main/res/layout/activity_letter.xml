@@ -24,27 +24,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inserisci una parola qui sotto"
-        android:layout_gravity="center"
-        android:layout_marginBottom="75dp"/>
+        android:layout_gravity="center|top"
+        android:layout_marginTop="175dp"
+        android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-    <Button
-        android:id="@+id/create_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="CREA"
-        android:layout_marginTop="100dp"/>
+        android:layout_gravity="center|top"
+        android:layout_marginTop="300dp"/>
+
     <Button
         android:id="@+id/print_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="STAMPA"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="100dp"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -274,5 +274,12 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_send" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="175dp"
+        android:textSize="20dp"
+        android:text="Premi per disegnare"/>
 
 </android.support.design.widget.CoordinatorLayout>

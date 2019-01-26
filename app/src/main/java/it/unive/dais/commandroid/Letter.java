@@ -53,13 +53,6 @@ public class Letter extends AppCompatActivity {
     private int length;
     private char[] y;
 
-
-
-    protected int[][][] array;
-
-
-
-
     void setLetter() {
 
         A[4][0] = 1;
@@ -550,10 +543,9 @@ public class Letter extends AppCompatActivity {
         setContentView(R.layout.activity_letter);
         setSupportActionBar(findViewById(R.id.my_toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setLetter();
 
         Button print_button = findViewById(R.id.print_button);
-       // Button create_button = findViewById(R.id.create_button);
-
         EditText edit_t = findViewById(R.id.edit_text);
 
 
@@ -697,7 +689,7 @@ public class Letter extends AppCompatActivity {
             e.printStackTrace();
         }
         for(int i =RIGHE-1; i >=0; i--){
-            for(int y = COLONNE-1; i >= 0; y--){
+            for(int y = COLONNE-1; y >= 0; y--){
                 if(draw[i][y]==1){
                     try {
                         motor.setStepPower(80,0,360,0,true);
