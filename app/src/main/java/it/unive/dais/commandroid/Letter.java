@@ -52,6 +52,8 @@ public class Letter extends AppCompatActivity {
     private  String x;
     private int length;
     private char[] y;
+    private static final String TAG = "myApp";
+
 
     void setLetter() {
 
@@ -550,120 +552,18 @@ public class Letter extends AppCompatActivity {
 
 
 
-         print_button.setOnClickListener(
+
+        print_button.setOnClickListener(
                  view -> {
                      x = edit_t.getText().toString();
                      y = x.toCharArray();
                      length = y.length;
-                     try{
-                         EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
-                         for(int i=length-1;i>=0;i--){
-                             if(y[i]=='A' || y[i]=='a'){
-                                 draw = A;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='B' || y[i]=='b'){
-                                 draw = B;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='C' || y[i]=='c'){
-                                 draw = C;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='D' || y[i]=='d'){
-                                 draw = D;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='E' || y[i]=='e'){
-                                 draw = E;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='F' || y[i]=='f'){
-                                 draw = F;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='G' || y[i]=='g'){
-                                 draw = G;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='H' || y[i]=='h'){
-                                 draw = H;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='I' || y[i]=='i'){
-                                 draw = I;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='J' || y[i]=='j'){
-                                 draw = J;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='K' || y[i]=='k'){
-                                 draw = K;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='L' || y[i]=='l'){
-                                 draw = L;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='M' || y[i]=='m'){
-                                 draw = M;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='N' || y[i]=='n'){
-                                 draw = N;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='O'|| y[i]=='o'){
-                                 draw = O;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='P'|| y[i]=='p'){
-                                 draw = P;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='Q'|| y[i]=='q'){
-                                 draw = Q;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='R'|| y[i]=='r'){
-                                 draw = r;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='S'|| y[i]=='s'){
-                                 draw = S;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='T'|| y[i]=='t'){
-                                 draw = T;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='U'|| y[i]=='u'){
-                                 draw = U;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='V'|| y[i]=='v'){
-                                 draw = V;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='W'|| y[i]=='w'){
-                                 draw = W;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='X'|| y[i]=='x'){
-                                 draw = X;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='Y'|| y[i]=='y'){
-                                 draw = Y;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
-                             if(y[i]=='Z'|| y[i]=='z') {
-                                 draw = Z;
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-                             }
 
-                         }
+
+                    try{
+                         EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
+
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
 
                      }
                      catch (IOException e){
@@ -688,33 +588,141 @@ public class Letter extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i =RIGHE-1; i >=0; i--){
-            for(int y = COLONNE-1; y >= 0; y--){
-                if(draw[i][y]==1){
+        for(int i=length-1;i>=0;i--) {
+            if (y[i] == 'A' || y[i] == 'a') {
+                draw = A;
+
+            }
+            if (y[i] == 'B' || y[i] == 'b') {
+                draw = B;
+
+            }
+            if (y[i] == 'C' || y[i] == 'c') {
+                draw = C;
+
+            }
+            if (y[i] == 'D' || y[i] == 'd') {
+                draw = D;
+
+            }
+            if (y[i] == 'E' || y[i] == 'e') {
+                draw = E;
+
+            }
+            if (y[i] == 'F' || y[i] == 'f') {
+                draw = F;
+
+            }
+            if (y[i] == 'G' || y[i] == 'g') {
+                draw = G;
+
+            }
+            if (y[i] == 'H' || y[i] == 'h') {
+                draw = H;
+
+            }
+            if (y[i] == 'I' || y[i] == 'i') {
+                draw = I;
+
+            }
+            if (y[i] == 'J' || y[i] == 'j') {
+                draw = J;
+
+            }
+            if (y[i] == 'K' || y[i] == 'k') {
+                draw = K;
+
+            }
+            if (y[i] == 'L' || y[i] == 'l') {
+                draw = L;
+
+            }
+            if (y[i] == 'M' || y[i] == 'm') {
+                draw = M;
+
+            }
+            if (y[i] == 'N' || y[i] == 'n') {
+                draw = N;
+
+            }
+            if (y[i] == 'O' || y[i] == 'o') {
+                draw = O;
+
+            }
+            if (y[i] == 'P' || y[i] == 'p') {
+                draw = P;
+
+            }
+            if (y[i] == 'Q' || y[i] == 'q') {
+                draw = Q;
+
+            }
+            if (y[i] == 'R' || y[i] == 'r') {
+                draw = r;
+
+            }
+            if (y[i] == 'S' || y[i] == 's') {
+                draw = S;
+
+            }
+            if (y[i] == 'T' || y[i] == 't') {
+                draw = T;
+
+            }
+            if (y[i] == 'U' || y[i] == 'u') {
+                draw = U;
+
+            }
+            if (y[i] == 'V' || y[i] == 'v') {
+                draw = V;
+
+            }
+            if (y[i] == 'W' || y[i] == 'w') {
+                draw = W;
+
+            }
+            if (y[i] == 'X' || y[i] == 'x') {
+                draw = X;
+
+            }
+            if (y[i] == 'Y' || y[i] == 'y') {
+                draw = Y;
+
+            }
+            if (y[i] == 'Z' || y[i] == 'z') {
+                draw = Z;
+
+            }
+
+
+            for (int w = RIGHE - 1; w >= 0; w--) {
+                for (int y = COLONNE - 1; y >= 0; y--) {
+                    if (draw[w][y] == 1) {
+                        try {
+                            motor.setStepPower(80, 0, 360, 0, true);
+                            motor.waitCompletion();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     try {
-                        motor.setStepPower(80,0,360,0,true);
-                        motor.waitCompletion();
+                        motor1.setStepPower(-70, 0, 30, 0, true);
+                        motor1.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                 }
                 try {
-                    motor1.setStepPower(-70,0,30,0,true);
+                    motor1.setStepPower(70, 0, 240, 0, true);
                     motor1.waitCompletion();
+                    motor2.setStepPower(70, 0, 15, 0, true);
+                    motor2.waitCompletion();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
             }
-            try {
-                motor1.setStepPower(70,0,240,0,true);
-                motor1.waitCompletion();
-                motor2.setStepPower(70,0,15,0,true);
-                motor2.waitCompletion();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         }
         try {
             motor2.setStepPower(20,0,1000,0,true);
