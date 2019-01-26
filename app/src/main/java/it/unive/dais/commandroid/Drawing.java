@@ -50,7 +50,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         try {
             EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
             FloatingActionButton fab =  findViewById(R.id.fab);
-            fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(this::draw)));
+            fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
 
             // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
             for(int i = 0; i < RIGHE; i++){

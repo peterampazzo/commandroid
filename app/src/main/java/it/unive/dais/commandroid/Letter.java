@@ -20,7 +20,7 @@ import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.MEDIUM;
 
 public class Letter extends AppCompatActivity {
 
-   /* protected int[][] A = new int[RIGHE][COLONNE];
+    protected int[][] A = new int[RIGHE][COLONNE];
     protected int[][] B = new int[RIGHE][COLONNE];
     protected int[][] C = new int[RIGHE][COLONNE];
     protected int[][] D = new int[RIGHE][COLONNE];
@@ -45,29 +45,31 @@ public class Letter extends AppCompatActivity {
     protected int[][] W = new int[RIGHE][COLONNE];
     protected int[][] X = new int[RIGHE][COLONNE];
     protected int[][] Y = new int[RIGHE][COLONNE];
-    protected int[][] Z = new int[RIGHE][COLONNE];*/
+    protected int[][] Z = new int[RIGHE][COLONNE];
 
-    protected  String x;
-    int length;
-    char[] y;
+    protected int[][] draw;
+
+    private  String x;
+    private int length;
+    private char[] y;
 
 
 
-    protected int[][][] array= new int[][][];
+    protected int[][][] array;
 
 
 
 
     void setLetter() {
 
-        array[0][4][0] = 1;
-        array[0][5][0] = 1;
-        array[0][6][0] = 1;
-        array[0][7][0] = 1;
-        array[0][1][1] = 1;
-        array[0][4][1] = 1;
-        array[0][0][2] = 1;
-        array[0][4][2] = 1;
+        A[4][0] = 1;
+        A[5][0] = 1;
+        A[6][0] = 1;
+        A[7][0] = 1;
+        A[1][1] = 1;
+        A[4][1] = 1;
+        A[0][2] = 1;
+        A[4][2] = 1;
         A[1][3] = 1;
         A[4][3] = 1;
         A[2][4] = 1;
@@ -541,7 +543,147 @@ public class Letter extends AppCompatActivity {
     TachoMotor motor1;
     TachoMotor motor2;
 
-    private void draw(EV3.Api api){
+
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_letter);
+        setSupportActionBar(findViewById(R.id.my_toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Button print_button = findViewById(R.id.print_button);
+       // Button create_button = findViewById(R.id.create_button);
+
+        EditText edit_t = findViewById(R.id.edit_text);
+
+
+
+         print_button.setOnClickListener(
+                 view -> {
+                     x = edit_t.getText().toString();
+                     y = x.toCharArray();
+                     length = y.length;
+                     try{
+                         EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
+                         for(int i=length-1;i>=0;i--){
+                             if(y[i]=='A' || y[i]=='a'){
+                                 draw = A;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='B' || y[i]=='b'){
+                                 draw = B;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='C' || y[i]=='c'){
+                                 draw = C;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='D' || y[i]=='d'){
+                                 draw = D;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='E' || y[i]=='e'){
+                                 draw = E;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='F' || y[i]=='f'){
+                                 draw = F;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='G' || y[i]=='g'){
+                                 draw = G;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='H' || y[i]=='h'){
+                                 draw = H;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='I' || y[i]=='i'){
+                                 draw = I;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='J' || y[i]=='j'){
+                                 draw = J;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='K' || y[i]=='k'){
+                                 draw = K;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='L' || y[i]=='l'){
+                                 draw = L;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='M' || y[i]=='m'){
+                                 draw = M;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='N' || y[i]=='n'){
+                                 draw = N;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='O'|| y[i]=='o'){
+                                 draw = O;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='P'|| y[i]=='p'){
+                                 draw = P;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='Q'|| y[i]=='q'){
+                                 draw = Q;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='R'|| y[i]=='r'){
+                                 draw = r;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='S'|| y[i]=='s'){
+                                 draw = S;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='T'|| y[i]=='t'){
+                                 draw = T;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='U'|| y[i]=='u'){
+                                 draw = U;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='V'|| y[i]=='v'){
+                                 draw = V;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='W'|| y[i]=='w'){
+                                 draw = W;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='X'|| y[i]=='x'){
+                                 draw = X;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='Y'|| y[i]=='y'){
+                                 draw = Y;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+                             if(y[i]=='Z'|| y[i]=='z') {
+                                 draw = Z;
+                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
+                             }
+
+                         }
+
+                     }
+                     catch (IOException e){
+                     e.printStackTrace();
+                     }
+
+
+                 });
+
+
+    }
+    public void draw(EV3.Api api){
         motor = api.getTachoMotor(EV3.OutputPort.B);
         motor1 = api.getTachoMotor(EV3.OutputPort.A);
         motor2 = api.getTachoMotor(EV3.OutputPort.C);
@@ -556,7 +698,7 @@ public class Letter extends AppCompatActivity {
         }
         for(int i =RIGHE-1; i >=0; i--){
             for(int y = COLONNE-1; i >= 0; y--){
-                if(A[i][y]==1){
+                if(draw[i][y]==1){
                     try {
                         motor.setStepPower(80,0,360,0,true);
                         motor.waitCompletion();
@@ -588,40 +730,5 @@ public class Letter extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_letter);
-        setSupportActionBar(findViewById(R.id.my_toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Button print_button = findViewById(R.id.print_button);
-        Button create_button = findViewById(R.id.create_button);
-
-        EditText edit_t = findViewById(R.id.edit_text);
-
-
-
-         create_button.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                            x = edit_t.getText().toString();
-                            y = x.toCharArray();
-                            length = y.length;
-
-                            }
-                });
-
-         try{
-             EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
-             print_button.setOnClickListener(v -> Prelude.trap(() -> ev3.run(this::draw)));
-         }
-         catch (IOException e){
-             e.printStackTrace();
-         }
-
     }
 }
