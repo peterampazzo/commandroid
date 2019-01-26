@@ -46,13 +46,14 @@ public class Letter extends AppCompatActivity {
     protected int[][] X = new int[RIGHE][COLONNE];
     protected int[][] Y = new int[RIGHE][COLONNE];
     protected int[][] Z = new int[RIGHE][COLONNE];
+    protected int[][] space = new int[RIGHE][COLONNE];
 
     protected int[][] draw;
 
     private  String x;
     private int length;
     private char[] y;
-    private static final String TAG = "myApp";
+
 
 
     void setLetter() {
@@ -693,10 +694,14 @@ public class Letter extends AppCompatActivity {
                 draw = Z;
 
             }
+            if (y[i] == ' ') {
+                draw = space;
+
+            }
 
 
-            for (int w = RIGHE - 1; w >= 0; w--) {
-                for (int y = COLONNE - 1; y >= 0; y--) {
+            for (int y = COLONNE - 1; y >= 0; y--) {
+                for (int w = RIGHE - 1; w >= 0; w--) {
                     if (draw[w][y] == 1) {
                         try {
                             motor.setStepPower(80, 0, 360, 0, true);
@@ -722,6 +727,11 @@ public class Letter extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+            }
+            try {
+                motor2.setStepPower(20,0,30,0,true); //va avnti di un po dopo ogmi lettera
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         try {
