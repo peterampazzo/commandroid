@@ -7,23 +7,26 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center|top"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/unive"
-            android:contentDescription="@string/unive" />
+            android:contentDescription="@string/unive"
+            app:srcCompat="@drawable/unive" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="Benvenuti"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,21 +38,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Scegli una modalità:"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="20dp"
+            android:text="Scegli una modalità:" />
+
         <Button
             android:id="@+id/disegnoLibero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Disegno Libero"/>
+            android:text="Disegno Libero" />
+
         <Button
 
             android:id="@+id/disegnoLettere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Stampa parole"/>
+            android:text="Stampa parole" />
+
+        <Button
+
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Aiuto" />
 
     </LinearLayout>
 
