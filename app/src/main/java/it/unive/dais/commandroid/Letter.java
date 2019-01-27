@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
 import it.unive.dais.legodroid.lib.plugs.TachoMotor;
+import it.unive.dais.legodroid.lib.plugs.TouchSensor;
 import it.unive.dais.legodroid.lib.util.Prelude;
 
 import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.LARGE;
@@ -576,10 +579,12 @@ public class Letter extends AppCompatActivity {
 
 
     }
+
     public void draw(EV3.Api api){
         motor = api.getTachoMotor(EV3.OutputPort.B);
         motor1 = api.getTachoMotor(EV3.OutputPort.A);
         motor2 = api.getTachoMotor(EV3.OutputPort.C);
+        TouchSensor reset = api.getTouchSensor(EV3.InputPort._1);
         try {
             motor.setType(LARGE);
             motor1.setType(MEDIUM);
@@ -723,7 +728,15 @@ public class Letter extends AppCompatActivity {
                     motor1.waitCompletion();
                     motor2.setStepPower(70, 0, 15, 0, true);
                     motor2.waitCompletion();
+                    Future<Boolean> touched = reset.getPressed();
+                    if(touched.get()){
+                        i=-2;              //reset
+                    }
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
                     e.printStackTrace();
                 }
 

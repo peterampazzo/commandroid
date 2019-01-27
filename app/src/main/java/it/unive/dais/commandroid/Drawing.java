@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
 import it.unive.dais.legodroid.lib.plugs.TachoMotor;
+import it.unive.dais.legodroid.lib.plugs.TouchSensor;
 import it.unive.dais.legodroid.lib.util.Prelude;
 
 import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.LARGE;
@@ -69,10 +72,13 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
     }
 
 
+
     private void draw(EV3.Api api){
         motor = api.getTachoMotor(EV3.OutputPort.B);
         motor1 = api.getTachoMotor(EV3.OutputPort.A);
         motor2 = api.getTachoMotor(EV3.OutputPort.C);
+        TouchSensor reset = api.getTouchSensor(EV3.InputPort._1);
+        int i,y;
         try {
             motor.setType(LARGE);
             motor1.setType(MEDIUM);
@@ -82,8 +88,8 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i =RIGHE-1; i >=0; i--){
-            for(int y = 0; y < COLONNE; y++){
+        for(i =RIGHE-1; i >=0; i--){
+            for(y = 0; y < COLONNE; y++){
                 if(draw[i][y]==1){
                     try {
                         motor.setStepPower(80,0,360,0,true);
@@ -105,7 +111,15 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
                 motor1.waitCompletion();
                 motor2.setStepPower(70,0,15,0,true);
                 motor2.waitCompletion();
+                Future<Boolean> touched = reset.getPressed();
+                if(touched.get()){
+                    i=-2;              //reset
+                }
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
                 e.printStackTrace();
             }
 
@@ -117,6 +131,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
             e.printStackTrace();
         }
     }
+
     public void ButtonsOnClick(Button button, int x, int y){
         if(draw[x][y] == 0){
             draw[x][y] = 1;
