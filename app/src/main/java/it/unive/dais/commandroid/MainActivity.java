@@ -56,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button disegno_libero = findViewById(R.id.disegnoLibero);
         Button disegno_lettere = findViewById(R.id.disegnoLettere);
+        Button info = findViewById(R.id.info);
         disegno_libero.setOnClickListener(v -> { this.startActivity(new Intent(this, Drawing.class));});
         disegno_lettere.setOnClickListener(v -> { this.startActivity(new Intent(this, Letter.class));});
+        info.setOnClickListener(v -> { this.startActivity(new Intent(this, Info.class));});
 
     }
 }
