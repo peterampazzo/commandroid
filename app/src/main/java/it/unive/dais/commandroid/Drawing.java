@@ -44,29 +44,27 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         return false;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawing);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        try {
-            EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
-            FloatingActionButton fab =  findViewById(R.id.fab);
-            fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
+        EV3 ev3 = Connection.getEv3();
+        FloatingActionButton fab =  findViewById(R.id.fab);
+        fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
 
-            // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
-            for(int i = 0; i < RIGHE; i++){
-                    for(int y = 0; y < COLONNE; y++){
-                        String buttonID = "b" + i + y;
-                        int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-                        buttons[i][y] =  findViewById(resID);
-                        buttons[i][y].setOnClickListener(this);
-                        draw[i][y] = 0;
-                    }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
+        for(int i = 0; i < RIGHE; i++){
+                for(int y = 0; y < COLONNE; y++){
+                    String buttonID = "b" + i + y;
+                    int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+                    buttons[i][y] =  findViewById(resID);
+                    buttons[i][y].setOnClickListener(this);
+                    draw[i][y] = 0;
+                }
         }
 
     }

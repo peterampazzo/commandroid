@@ -562,17 +562,8 @@ public class Letter extends AppCompatActivity {
                      x = edit_t.getText().toString();
                      y = x.toCharArray();
                      length = y.length;
-
-
-                    try{
-                         EV3 ev3 = new EV3(new BluetoothConnection("EV3").connect());
-
-                                 Prelude.trap(() -> ev3.run(Letter.this::draw));
-
-                     }
-                     catch (IOException e){
-                     e.printStackTrace();
-                     }
+                     EV3 ev3 = Connection.getEv3();
+                     Prelude.trap(() -> ev3.run(Letter.this::draw));
 
 
                  });
