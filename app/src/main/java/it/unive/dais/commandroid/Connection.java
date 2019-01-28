@@ -11,8 +11,7 @@ import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
 public class Connection extends Application {
 
 
-    private static EV3 ev3;
-
+    private  EV3 ev3;
 
     @Override
     public void onCreate() {
@@ -35,7 +34,7 @@ public class Connection extends Application {
         super.onLowMemory();
     }
 
-    static EV3 getEv3(){
+    public EV3 getEv3(){
         return ev3;
     }
 }

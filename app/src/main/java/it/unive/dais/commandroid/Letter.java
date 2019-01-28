@@ -562,7 +562,8 @@ public class Letter extends AppCompatActivity {
                      x = edit_t.getText().toString();
                      y = x.toCharArray();
                      length = y.length;
-                     EV3 ev3 = Connection.getEv3();
+                     Connection c = (Connection) getApplication();
+                     EV3 ev3 = c.getEv3();
                      Prelude.trap(() -> ev3.run(Letter.this::draw));
 
 

@@ -1,5 +1,6 @@
 package it.unive.dais.commandroid;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,7 +53,8 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_drawing);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        EV3 ev3 = Connection.getEv3();
+        Connection c = (Connection) getApplication();
+        EV3 ev3 = c.getEv3();
         FloatingActionButton fab =  findViewById(R.id.fab);
         fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
 
