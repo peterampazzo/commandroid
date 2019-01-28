@@ -65,6 +65,8 @@ public class Letter extends AppCompatActivity {
         A[5][0] = 1;
         A[6][0] = 1;
         A[7][0] = 1;
+        A[3][0] = 1;
+        A[2][0] = 1;
         A[1][1] = 1;
         A[4][1] = 1;
         A[0][2] = 1;
@@ -463,31 +465,37 @@ public class Letter extends AppCompatActivity {
         V[4][4] = 1;
         V[5][4] = 1;
 
-        W[1][0] = 1;
-        W[2][0] = 1;
-        W[3][0] = 1;
-        W[4][0] = 1;
-        W[5][0] = 1;
-        W[6][1] = 1;
-        W[7][1] = 1;
-        W[6][2] = 1;
-        W[7][2] = 1;
-        W[6][3] = 1;
-        W[7][3] = 1;
-        W[0][4] = 1;
-        W[1][4] = 1;
-        W[2][4] = 1;
-        W[3][4] = 1;
-        W[4][4] = 1;
-        W[5][4] = 1;
-        W[0][0] = 1;
+        W[0][0]=1;
+        W[1][0]=1;
+        W[2][0]=1;
+        W[3][0]=1;
+        W[4][0]=1;
+        W[5][0]=1;
+        W[6][1]=1;
+        W[2][2]=1;
+        W[3][2]=1;
+        W[4][2]=1;
+        W[5][2]=1;
+        W[6][2]=1;
+        W[7][2]=1;
+        W[6][3]=1;
+        W[0][4]=1;
+        W[1][4]=1;
+        W[2][4]=1;
+        W[3][4]=1;
+        W[4][4]=1;
+        W[5][4]=1;
+
+
+
+
 
         X[0][0] = 1;
         X[7][0] = 1;
         X[1][1] = 1;
         X[2][1] = 1;
+        X[5][1] = 1;
         X[6][1] = 1;
-        X[7][1] = 1;
         X[2][2] = 1;
         X[3][2] = 1;
         X[4][2] = 1;
@@ -701,14 +709,14 @@ public class Letter extends AppCompatActivity {
                 for (int w = RIGHE - 1; w >= 0; w--) {
                     if (draw[w][y] == 1) {
                         try {
-                            motor.setStepPower(80, 0, 360, 0, true);
+                            motor.setStepPower(120, 0, 360, 0, true);
                             motor.waitCompletion();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                     try {
-                        motor1.setStepPower(-70, 0, 30, 0, true);
+                        motor1.setStepPower(-120, 0, 30, 0, true);
                         motor1.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -716,9 +724,9 @@ public class Letter extends AppCompatActivity {
 
                 }
                 try {
-                    motor1.setStepPower(70, 0, 240, 0, true);
+                    motor1.setStepPower(120, 0, 240, 0, true);
                     motor1.waitCompletion();
-                    motor2.setStepPower(70, 0, 15, 0, true);
+                    motor2.setStepPower(120, 0, 15, 0, true);
                     motor2.waitCompletion();
                     Future<Boolean> touched = reset.getPressed();
                     if(touched.get()){
@@ -734,13 +742,13 @@ public class Letter extends AppCompatActivity {
 
             }
             try {
-                motor2.setStepPower(20,0,30,0,true); //va avnti di un po dopo ogmi lettera
+                motor2.setStepPower(50,0,30,0,true); //va avnti di un po dopo ogmi lettera
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         try {
-            motor2.setStepPower(20,0,1000,0,true);
+            motor2.setStepPower(50,0,1000,0,true);
             motor2.waitCompletion();
         } catch (IOException e) {
             e.printStackTrace();

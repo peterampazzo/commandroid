@@ -55,7 +55,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Connection c = (Connection) getApplication();
         EV3 ev3 = c.getEv3();
-        FloatingActionButton fab =  findViewById(R.id.fab);
+        Button fab =  findViewById(R.id.fab);
         fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
 
         // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
@@ -92,14 +92,14 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
             for(y = 0; y < COLONNE; y++){
                 if(draw[i][y]==1){
                     try {
-                        motor.setStepPower(80,0,360,0,true);
+                        motor.setStepPower(120,0,360,0,true);
                         motor.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
                 try {
-                    motor1.setStepPower(-70,0,30,0,true);
+                    motor1.setStepPower(-120,0,30,0,true);
                     motor1.waitCompletion();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -107,9 +107,9 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
             }
             try {
-                motor1.setStepPower(70,0,240,0,true);
+                motor1.setStepPower(120,0,240,0,true);
                 motor1.waitCompletion();
-                motor2.setStepPower(70,0,15,0,true);
+                    motor2.setStepPower(120,0,15,0,true);
                 motor2.waitCompletion();
                 Future<Boolean> touched = reset.getPressed();
                 if(touched.get()){
@@ -125,7 +125,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
         }
         try {
-            motor2.setStepPower(20,0,1000,0,true);
+            motor2.setStepPower(50,0,1000,0,true);
             motor2.waitCompletion();
         } catch (IOException e) {
             e.printStackTrace();

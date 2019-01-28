@@ -55,14 +55,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:text="Stampa parole" />
-
-        <Button
-
-            android:id="@+id/info"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Aiuto" />
+            android:layout_marginTop="80dp"
+            android:text="Attiva le modalità:" />
+        <Switch
+            android:id="@+id/random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"/>
 
     </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -17,6 +18,7 @@ import java.util.concurrent.Future;
 import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.plugs.TachoMotor;
 import it.unive.dais.legodroid.lib.plugs.TouchSensor;
+import it.unive.dais.legodroid.lib.util.Prelude;
 
 import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.LARGE;
 import static it.unive.dais.legodroid.lib.plugs.TachoMotor.Type.MEDIUM;
@@ -130,27 +132,36 @@ public class MainActivity extends AppCompatActivity {
         infinito[0][7] = 1;
         infinito[7][7] = 1;
     }
-
+    int toggle;
+    Connection c;
+    Switch random;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button disegno_libero = findViewById(R.id.disegnoLibero);
         Button disegno_lettere = findViewById(R.id.disegnoLettere);
-        Button info = findViewById(R.id.info);
+        random = findViewById(R.id.random);
+        init();
         disegno_libero.setOnClickListener(v -> { this.startActivity(new Intent(this, Drawing.class));});
         disegno_lettere.setOnClickListener(v -> { this.startActivity(new Intent(this, Letter.class));});
-        info.setOnClickListener(v -> { this.startActivity(new Intent(this, Info.class));});
+        c = (Connection) getApplication();
+        toggle=c.getToogle();
+        random.setOnClickListener(v->{if(toggle==0){ c.setToogle(); toggle=1;}});
+        EV3 ev3 = c.getEv3();
+        if(toggle==1){
+            random.setChecked(true);
+        }
+        Prelude.trap(() -> ev3.run(MainActivity.this::cycle));
 
 
     }
 
     private void cycle(EV3.Api api) {
-        TouchSensor random = api.getTouchSensor(EV3.InputPort._2);
-        while (!api.ev3.isCancelled()) {
-
+        TouchSensor button = api.getTouchSensor(EV3.InputPort._2);
+        while (toggle==0) {
             try {
-                touched1 = random.getPressed();
+                touched1 = button.getPressed();
                 if (touched1.get()) {
                     motor = api.getTachoMotor(EV3.OutputPort.B);
                     motor1 = api.getTachoMotor(EV3.OutputPort.A);
@@ -180,14 +191,14 @@ public class MainActivity extends AppCompatActivity {
                         for (y = 0; y < COLONNE; y++) {
                             if (draw[i][y] == 1) {
                                 try {
-                                    motor.setStepPower(80, 0, 360, 0, true);
+                                    motor.setStepPower(120, 0, 360, 0, true);
                                     motor.waitCompletion();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
                             }
                             try {
-                                motor1.setStepPower(-70, 0, 30, 0, true);
+                                motor1.setStepPower(-120, 0, 30, 0, true);
                                 motor1.waitCompletion();
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -195,13 +206,18 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                         try {
-                            motor1.setStepPower(70, 0, 240, 0, true);
+                            motor1.setStepPower(120, 0, 240, 0, true);
                             motor1.waitCompletion();
-                            motor2.setStepPower(70, 0, 15, 0, true);
+                            motor2.setStepPower(120, 0, 15, 0, true);
                             motor2.waitCompletion();
                             Future<Boolean> touched = reset.getPressed();
                             if (touched.get()) {
                                 i = -2;              //reset
+                                toggle=1;
+                                c.setToogle();
+                                finish();
+                                startActivity(new Intent(this, MainActivity.class));
+
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -214,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     count = (count + 1) % 4;
                     try {
-                        motor2.setStepPower(20, 0, 1000, 0, true);
+                        motor2.setStepPower(50, 0, 1000, 0, true);
                         motor2.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();

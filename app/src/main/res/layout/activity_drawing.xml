@@ -267,12 +267,14 @@
     </GridLayout>
 
 
-    <android.support.design.widget.FloatingActionButton
+    <Button
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_gravity="center"
+        android:layout_marginTop="350dp"
+        android:text="STAMPA"/>
+
         app:srcCompat="@android:drawable/ic_menu_send" />
     <TextView
         android:layout_width="wrap_content"

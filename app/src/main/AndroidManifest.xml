@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".Drawing"
-            android:label="@string/title_activity_drawing"
+            android:label="Disegno libero"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".Letter"
-            android:label="Letter"
+            android:label="Stampa parole"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

@@ -12,12 +12,13 @@ public class Connection extends Application {
 
 
     private  EV3 ev3;
-
+    private int toogle;
     @Override
     public void onCreate() {
         super.onCreate();
         try {
             ev3 = new EV3(new BluetoothConnection("EV3").connect());
+            toogle = 0;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,5 +37,12 @@ public class Connection extends Application {
 
     public EV3 getEv3(){
         return ev3;
+    }
+    public int getToogle(){
+        return toogle;
+    }
+    public void setToogle(){
+        if(toogle==0)
+            toogle=1;
     }
 }
