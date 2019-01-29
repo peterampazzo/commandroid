@@ -53,10 +53,10 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_drawing);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Connection c = (Connection) getApplication();
-        EV3 ev3 = c.getEv3();
-        Button fab =  findViewById(R.id.fab);
-        fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw)));
+        Connection c = (Connection) getApplication();                //prendo  l'istanza di Connection
+        EV3 ev3 = c.getEv3();                                        //prendo l'istanza di ev3 dalla Connection
+        Button fab =  findViewById(R.id.fab);                        //prendo il bottone di stampa dal layout
+        fab.setOnClickListener(v -> Prelude.trap(() -> ev3.run(Drawing.this::draw))); //quando premo il bottone inizia a disegnare
 
         // Commandroid: genera due matrice, azzera quella "draw" e inizializza "buttons"
         for(int i = 0; i < RIGHE; i++){
@@ -73,7 +73,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
 
 
-    private void draw(EV3.Api api){
+    private void draw(EV3.Api api){  //funzione che mi permette di fare un disegno rispetto alla matrice buttons
         motor = api.getTachoMotor(EV3.OutputPort.B);
         motor1 = api.getTachoMotor(EV3.OutputPort.A);
         motor2 = api.getTachoMotor(EV3.OutputPort.C);
@@ -99,7 +99,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
                     }
                 }
                 try {
-                    motor1.setStepPower(-120,0,30,0,true);
+                    motor1.setStepPower(-120,0,30,0,true);  //sposta il braccio
                     motor1.waitCompletion();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -107,13 +107,13 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
             }
             try {
-                motor1.setStepPower(120,0,240,0,true);
+                motor1.setStepPower(120,0,240,0,true);    //rimetto il braccio della stampante nella poszione iniziale
                 motor1.waitCompletion();
                     motor2.setStepPower(120,0,15,0,true);
                 motor2.waitCompletion();
-                Future<Boolean> touched = reset.getPressed();
+                Future<Boolean> touched = reset.getPressed();          //inizializzo il bottone di reset dell'ev3
                 if(touched.get()){
-                    i=-2;              //reset
+                    i=-2;                                              //se è stato premuto blocco la stampa
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,7 +125,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
 
         }
         try {
-            motor2.setStepPower(50,0,1000,0,true);
+            motor2.setStepPower(50,0,1000,0,true);  //getto fuori il foglio alla fine della stampa
             motor2.waitCompletion();
         } catch (IOException e) {
             e.printStackTrace();
@@ -142,7 +142,7 @@ public class Drawing extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {            //funzio che mi segna su che punto dela matrice ho premuto
         switch (view.getId()){
             //riga 0
             case R.id.b00:

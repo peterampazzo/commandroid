@@ -8,8 +8,9 @@ import java.io.IOException;
 import it.unive.dais.legodroid.lib.EV3;
 import it.unive.dais.legodroid.lib.comm.BluetoothConnection;
 
-public class Connection extends Application {
+/* Classe che permettere di condividere l'oggetto ev3 fra le varie activities*/
 
+public class Connection extends Application {
 
     private  EV3 ev3;
     private int toogle;
@@ -17,7 +18,7 @@ public class Connection extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            ev3 = new EV3(new BluetoothConnection("EV3").connect());
+            ev3 = new EV3(new BluetoothConnection("EV3").connect());  /* creazione della connessione con il brick ev3 */
             toogle = 0;
         } catch (IOException e) {
             e.printStackTrace();

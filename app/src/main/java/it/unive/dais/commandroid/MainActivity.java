@@ -36,9 +36,14 @@ public class MainActivity extends AppCompatActivity {
     protected int[][] x = new int[RIGHE][COLONNE];
     protected int[][] infinito = new int[RIGHE][COLONNE];
     int count=0;
+    int toggle;
+    Connection c;
+    Switch random;
+
     private static int RIGHE = 8;
     private static int COLONNE = 8;
-    void init() {
+
+    void init() {            //funzione che mi inizializza le matrici per la dimostrazione iniziale
 
         quadrato[0][0] = 1;
         quadrato[1][0] = 1;
@@ -132,41 +137,44 @@ public class MainActivity extends AppCompatActivity {
         infinito[0][7] = 1;
         infinito[7][7] = 1;
     }
-    int toggle;
-    Connection c;
-    Switch random;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button disegno_libero = findViewById(R.id.disegnoLibero);
+
+        Button disegno_libero = findViewById(R.id.disegnoLibero);      //prendo i bottoni dal layout
         Button disegno_lettere = findViewById(R.id.disegnoLettere);
         random = findViewById(R.id.random);
-        init();
-        disegno_libero.setOnClickListener(v -> { this.startActivity(new Intent(this, Drawing.class));});
+
+        init();   //inizializzo le matrici
+
+        disegno_libero.setOnClickListener(v -> { this.startActivity(new Intent(this, Drawing.class));});        //setto i listener dei due bottoni che mi porteranno alle altre activities
         disegno_lettere.setOnClickListener(v -> { this.startActivity(new Intent(this, Letter.class));});
-        c = (Connection) getApplication();
+
+        c = (Connection) getApplication();  //prendo  l'istanza di Connection
         toggle=c.getToogle();
-        random.setOnClickListener(v->{if(toggle==0){ c.setToogle(); toggle=1;}});
-        EV3 ev3 = c.getEv3();
+        random.setOnClickListener(v->{if(toggle==0){ c.setToogle(); toggle=1;}}); //setto il listener del switch in modo tale da attivare le altre modalità dell'app
+        EV3 ev3 = c.getEv3();       //prendo l'istanza di ev3 dalla Connection
+
         if(toggle==1){
             random.setChecked(true);
         }
-        Prelude.trap(() -> ev3.run(MainActivity.this::cycle));
+        Prelude.trap(() -> ev3.run(MainActivity.this::cycle));  //faccio partire la funzione cycle sull'ev3
 
 
     }
 
-    private void cycle(EV3.Api api) {
+    private void cycle(EV3.Api api) {                                //funzione che a rotazione mi stampa un quadrato,cerchio,x e il simbolo dell'infinito
         TouchSensor button = api.getTouchSensor(EV3.InputPort._2);
         while (toggle==0) {
             try {
                 touched1 = button.getPressed();
-                if (touched1.get()) {
+                if (touched1.get()) {                                 //controllo se il pulsante è stato premuto, se è stato premuto inizia a disegnare
                     motor = api.getTachoMotor(EV3.OutputPort.B);
                     motor1 = api.getTachoMotor(EV3.OutputPort.A);
                     motor2 = api.getTachoMotor(EV3.OutputPort.C);
-                    TouchSensor reset = api.getTouchSensor(EV3.InputPort._1);
+                    TouchSensor reset = api.getTouchSensor(EV3.InputPort._1);        //assegno il bottone di reset
                     int i, y;
                     try {
                         motor.setType(LARGE);
@@ -177,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if (count == 0)
+                    if (count == 0)                              //setto cosa disegnare
                         draw = quadrato;
                     if (count == 1)
                         draw = cerchio;
@@ -191,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
                         for (y = 0; y < COLONNE; y++) {
                             if (draw[i][y] == 1) {
                                 try {
-                                    motor.setStepPower(120, 0, 360, 0, true);
-                                    motor.waitCompletion();
+                                    motor.setStepPower(120, 0, 360, 0, true);   //muove il motore
+                                    motor.waitCompletion();                                                     //aspetta il completamento dell'azione da parte del motore
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -206,17 +214,17 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                         try {
-                            motor1.setStepPower(120, 0, 240, 0, true);
+                            motor1.setStepPower(120, 0, 240, 0, true);    //porto indietro il braccio della stampante dopo ogni riga disegnata
                             motor1.waitCompletion();
                             motor2.setStepPower(120, 0, 15, 0, true);
                             motor2.waitCompletion();
-                            Future<Boolean> touched = reset.getPressed();
+                            Future<Boolean> touched = reset.getPressed();                               //inizializzo il bottone di reset dell'ev3
                             if (touched.get()) {
                                 i = -2;              //reset
                                 toggle=1;
                                 c.setToogle();
                                 finish();
-                                startActivity(new Intent(this, MainActivity.class));
+                                startActivity(new Intent(this, MainActivity.class));     //ricarico l'activity
 
                             }
                         } catch (IOException e) {
@@ -230,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     count = (count + 1) % 4;
                     try {
-                        motor2.setStepPower(50, 0, 1000, 0, true);
+                        motor2.setStepPower(50, 0, 1000, 0, true);   //getto fuori il foglio alla fine della stampa
                         motor2.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();

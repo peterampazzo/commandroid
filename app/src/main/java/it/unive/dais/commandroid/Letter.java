@@ -59,7 +59,7 @@ public class Letter extends AppCompatActivity {
 
 
 
-    void setLetter() {
+    void setLetter() {   //funzione che inizializza le matrici delle lettere
 
         A[4][0] = 1;
         A[5][0] = 1;
@@ -557,7 +557,7 @@ public class Letter extends AppCompatActivity {
         setContentView(R.layout.activity_letter);
         setSupportActionBar(findViewById(R.id.my_toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setLetter();
+        setLetter();                                            //inizializzo la matrici
 
         Button print_button = findViewById(R.id.print_button);
         EditText edit_t = findViewById(R.id.edit_text);
@@ -595,7 +595,7 @@ public class Letter extends AppCompatActivity {
             e.printStackTrace();
         }
         for(int i=length-1;i>=0;i--) {
-            if (y[i] == 'A' || y[i] == 'a') {
+            if (y[i] == 'A' || y[i] == 'a') {           //per ogni caso assegno che lettera disegnare rispetto alla lettera inserita dall'utente
                 draw = A;
 
             }
@@ -716,7 +716,7 @@ public class Letter extends AppCompatActivity {
                         }
                     }
                     try {
-                        motor1.setStepPower(-120, 0, 30, 0, true);
+                        motor1.setStepPower(-120, 0, 30, 0, true);   //sposta il braccio
                         motor1.waitCompletion();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -724,13 +724,13 @@ public class Letter extends AppCompatActivity {
 
                 }
                 try {
-                    motor1.setStepPower(120, 0, 240, 0, true);
+                    motor1.setStepPower(120, 0, 240, 0, true);  //rimetto il braccio della stampante nella poszione iniziale
                     motor1.waitCompletion();
-                    motor2.setStepPower(120, 0, 15, 0, true);
+                    motor2.setStepPower(120, 0, 15, 0, true);   //va avanti di un po' dopo ogni lettera
                     motor2.waitCompletion();
-                    Future<Boolean> touched = reset.getPressed();
+                    Future<Boolean> touched = reset.getPressed();                    //inizializzo il bottone di reset dell'ev3
                     if(touched.get()){
-                        i=-2;              //reset
+                        i=-2;                                                        //reset, fermo la stampa
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -742,13 +742,13 @@ public class Letter extends AppCompatActivity {
 
             }
             try {
-                motor2.setStepPower(50,0,30,0,true); //va avnti di un po dopo ogmi lettera
+                motor2.setStepPower(50,0,30,0,true);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         try {
-            motor2.setStepPower(50,0,1000,0,true);
+            motor2.setStepPower(50,0,1000,0,true);   //getto fuori il foglio alla fine della stampa
             motor2.waitCompletion();
         } catch (IOException e) {
             e.printStackTrace();
