@@ -23,7 +23,7 @@ Prima dell'utilizzo dell'applicazione è necessario attivare il Bluetooth del pr
 
 Sono state sviluppate tre funzionalità. La prima ci permette di verificare che non ci siano problemi con la comunicazione e con il set up del kit. Per poter avviare questa funzionalità è necessario disattivare (default) lo switch presente nella schermata principale e cliccare sul sensore di contatto abbinato a tale funzionalità.
 
-È possibile poi utilizzare le rimanenti due funzionalita - le quali richiedono lo switch nella prima schermata sia attivato - che sono interamente personalizzabili dall'utente:
+È possibile poi utilizzare le rimanenti due funzionalita - lo switch nella prima schermata deve essere attivo - che sono interamente personalizzabili dall'utente:
 1. Nella prima è possibile disegnare una pixelart seguendo la struttura già preddisposta di una matrice 
 2. Invece nella seconda è possibile digitare un testo - la codifica in pixel art verrà realizzata interamente dall'applicazione 
 
