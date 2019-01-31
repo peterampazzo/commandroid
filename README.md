@@ -1,6 +1,6 @@
 # Commandroid
 
-Commandroid è un applicazione Android realizzata come progetto per il corso di *Ingegneria del Software* tenuto dal Prof. Agostino Cortesi.
+Commandroid è un'applicazione Android realizzata come progetto per il corso di *Ingegneria del Software* tenuto dal Prof. Agostino Cortesi.
 
 L'applicazione è in grado di inviare comandi ad un LEGO Mindstrom EV3 per stampare un testo o una figura disegnata sullo smartphone che segua la struttura di una matrice già predisposta. La comunicazione con il robot LEGO Mindstorm EV3 è stata possibile grazie alla libreria [`Legodroid`](https://github.com/alvisespano/Legodroid) realizzata da Alvise Spanò.
 
