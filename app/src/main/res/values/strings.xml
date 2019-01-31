@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Commandroid</string>
+    <string name="title_activity_on_boarding">OnBoarding</string>
+    <string name="title_activity_scan">Scan</string>
+    <string name="title_activity_drawing">Drawing</string>
+    <string name="todo">TODO</string>
+    <string name="unive">unive</string>
 </resources>

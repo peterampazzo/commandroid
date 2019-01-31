@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Drawing">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<include layout="@layout/content_drawing" />-->
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="8"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- row 1 -->
+        <CheckBox
+            android:id="@+id/b00"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b01"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b02"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b03"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b04"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b05"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b06"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b07"
+            android:text="" />
+
+
+        <!-- row 2 -->
+        <CheckBox
+            android:id="@+id/b10"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b11"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b12"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b13"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b14"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b15"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b16"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b17"
+            android:text="" />
+
+        <!-- row 3 -->
+        <CheckBox
+            android:id="@+id/b20"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b21"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b22"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b23"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b24"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b25"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b26"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b27"
+            android:text="" />
+
+        <!-- row 4 -->
+        <CheckBox
+            android:id="@+id/b30"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b31"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b32"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b33"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b34"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b35"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b36"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b37"
+            android:text="" />
+
+        <!-- row 5 -->
+        <CheckBox
+            android:id="@+id/b40"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b41"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b42"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b43"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b44"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b45"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b46"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b47"
+            android:text="" />
+
+        <!-- row 6 -->
+        <CheckBox
+            android:id="@+id/b50"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b51"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b52"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b53"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b54"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b55"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b56"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b57"
+            android:text="" />
+
+
+        <!-- row 7 -->
+        <CheckBox
+            android:id="@+id/b60"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b61"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b62"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/b63"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b64"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b65"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b66"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b67"
+            android:text="" />
+
+        <!-- row 8 -->
+        <CheckBox
+            android:id="@+id/b70"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b71"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b72"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b73"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b74"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b75"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b76"
+            android:text="" />
+        <CheckBox
+            android:id="@+id/b77"
+            android:text="" />
+
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="350dp"
+        android:text="STAMPA"/>
+
+        app:srcCompat="@android:drawable/ic_menu_send" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="175dp"
+        android:textSize="20dp"
+        android:text="Premi per disegnare"/>
+
+</android.support.design.widget.CoordinatorLayout>

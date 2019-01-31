@@ -3,6 +3,7 @@
     package="it.unive.dais.commandroid">
 
     <application
+        android:name=".Connection"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,6 +16,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Drawing"
+            android:label="Disegno libero"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.unive.dais.commandroid.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Letter"
+            android:label="Stampa parole"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.unive.dais.commandroid.MainActivity" />
         </activity>
     </application>
 
